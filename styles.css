@@ -1,0 +1,28 @@
+:root {
+  --white:rgb(255, 254, 254);
+  --dark:rgb(9, 9, 9);
+  --grey:rgb(123, 121, 121);
+}
+
+body {
+  background-color: var(--grey);
+}
+
+.header {
+  text-align: center;
+  font-family: 'Orbitron', sans-serif;
+  margin: 2rem;
+  font-size: 600;
+}
+#gridContainer {
+  display: grid;
+  max-width: 600px;
+  min-height: 600px;
+  margin: 3rem auto;
+  border: 1px solid var(--dark);
+}
+
+.gridItem {
+  border: 1px solid var(--dark);
+  background-color: var(--white);
+}
