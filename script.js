@@ -54,5 +54,4 @@ function userGridSize() {
 }
 
 /// Declaration that initializes the program
-
 userGridSize();
