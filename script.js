@@ -1,19 +1,11 @@
 const gridContainer = document.querySelector("#gridContainer")
-/// Event triggers when the window loads
 
-window.addEventListener("load", setGrid(16));
+/// Function that sets the grid 
 
-/// Function triggered by previous events size =16 
-function setGrid(size){
-    setGridSize(size);
-    finishGrid(size);
-}
-
-function setGridSize(size) {
+function setGrid(size) {
     gridContainer.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
-}
+    gridContainer.style.gridTemplateRows = `repeat(${size}, 1fr)`
 
-function finishGrid(size) {
     for (let i = 0; i < size * size; i++) {
         const gridItem = document.createElement("div");
         gridItem.classList = "gridItem";
@@ -22,6 +14,8 @@ function finishGrid(size) {
     }
 }
 
+/// Function that randomly changes the color of each div.
+
 function colorChange(e){
     const rgbRed = Math.floor(Math.random() * 256);
     const rgbGreen = Math.floor(Math.random() * 256);
@@ -29,16 +23,36 @@ function colorChange(e){
     e.target.style.backgroundColor = `rgb(${rgbRed}, ${rgbGreen}, ${rgbBlue})`;
 }
 
-/// Restart Button
+/// Restart Button.
 
 const restartBtn = document.getElementById("restartBtn");
 restartBtn.onclick = () => restartSketch()
 
 function restartSketch(){
     emptyGrid();
-    setGrid(16);
+    userGridSize();
 }
 
 function emptyGrid() {
     gridContainer.innerHTML = "";
 }
+
+/// prompt to the user asking for a new grid size
+
+function userGridSize() {
+    let userSize = prompt("Please, enter a grid size from 1 to 100");
+
+    if (userSize !== null) {
+        userSize = parseInt(userSize);
+        if (userSize < 1 || userSize > 100 || Number.isNaN(userSize)) {
+            alert("It must be a number between 1 and 100.");
+            userGridSize();
+        } else {
+            setGrid(userSize)
+        }
+    }
+}
+
+/// Declaration that initializes the program
+
+userGridSize();

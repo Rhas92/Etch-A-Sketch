@@ -14,10 +14,18 @@ body {
   margin: 2rem;
   font-size: 600;
 }
+
+.footer {
+  text-align: center;
+  font-family: 'Orbitron', sans-serif;
+  margin: 2rem;
+  font-size: 600;
+}
+
 #gridContainer {
   display: grid;
-  max-width: 600px;
-  min-height: 600px;
+  max-width: 450px;
+  min-height: 450px;
   margin: 3rem auto;
   border: 1px solid var(--dark);
 }
@@ -39,5 +47,4 @@ body {
   height: 50px;
   font-family: 'Orbitron', sans-serif;
   font-size: 600;
-  
 }
